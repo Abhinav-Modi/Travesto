@@ -14,10 +14,12 @@ mongoose
 	.then(() => {
 		console.log("Connected to MongoDB");
 	})
-	.catch((err) => {
-		console.error("error");
+	.catch((error) => {
+		throw error;
 	});
+//middleware
 
+app.use(express.json());
 app.use("/auth", authRoute);
 app.use("/hotels", hotelsRoute);
 app.use("/rooms", roomsRoute);
